@@ -1,0 +1,62 @@
+units           metal
+boundary        p p p
+atom_style      atomic
+
+
+read_data       C60-bcc.lammps
+
+
+pair_style      deepmd compress_model.pb
+pair_coeff	* *
+
+neighbor        2.0 bin
+neigh_modify    delay 10
+thermo          50
+thermo_style    custom step temp etotal pe ke press enthalpy vol lx ly lz
+timestep        0.001
+
+#min_style           cg
+#minimize            1.0e-7 1.0e-7 3000 3000
+
+# eql 300K 1atm
+fix 1 all npt temp 300 300 0.1 iso 1 1 1
+dump 1 all custom 100 300K_1atm.atom id type xs ys zs
+dump_modify 1 sort id
+run 10000
+undump 1
+unfix 1
+
+# press rise 300k 30GPa
+fix 3 all npt temp 300 300 0.1 iso 1 400000 1
+dump 3 all custom 100 press-rise.atom id type xs ys zs
+dump_modify 3 sort id
+run 10000
+undump 3
+unfix 3
+
+
+# eql 300K 30GPa
+fix 2 all npt temp 300 300 0.1 iso 400000 400000 1
+dump 2 all custom 100 300K_40GPa.atom id type xs ys zs
+dump_modify 2 sort id
+run 10000
+undump 2
+unfix 2
+
+
+# temp rise 
+fix 4 all npt temp 300 700 0.1 iso 400000 400000 1
+dump 4 all custom 100 temp-rise-300-700.atom id type xs ys zs
+dump_modify 4 sort id
+run 40000
+undump 4
+unfix 4
+
+# temp eql
+fix 5 all npt temp 700 700 0.1 iso 400000 400000 1
+dump 5 all custom 200 temp-700.atom id type xs ys zs
+dump_modify 5 sort id
+run 10000
+undump 5
+unfix 5
+

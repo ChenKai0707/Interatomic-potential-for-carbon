@@ -1,0 +1,160 @@
+{
+    "model": {
+        "type_map": [
+            "C"
+        ],
+        "descriptor": {
+            "type": "se_e2_a",
+            "sel": [
+                100
+            ],
+            "rcut_smth": 2.0,
+            "rcut": 6.0,
+            "neuron": [
+                25,
+                50,
+                100
+            ],
+            "resnet_dt": false,
+            "type_one_side": true,
+            "axis_neuron": 16,
+            "seed": 2530876844,
+            "activation_function": "tanh"
+        },
+        "fitting_net": {
+            "neuron": [
+                240,
+                240,
+                240
+            ],
+            "resnet_dt": true,
+            "seed": 3476477323,
+            "activation_function": "tanh"
+        }
+    },
+    "learning_rate": {
+        "type": "exp",
+        "start_lr": 0.001,
+        "decay_steps": 10000
+    },
+    "loss": {
+        "start_pref_e": 0.02,
+        "limit_pref_e": 1,
+        "start_pref_f": 1000,
+        "limit_pref_f": 1,
+        "start_pref_v": 0.1,
+        "limit_pref_v": 1
+    },
+    "training": {
+        "stop_batch": 2000000,
+        "disp_file": "lcurve.out",
+        "disp_freq": 2000,
+        "numb_test": "auto",
+        "save_freq": 2000,
+        "save_ckpt": "model.ckpt",
+        "disp_training": true,
+        "time_training": true,
+        "profiling": false,
+        "profiling_file": "timeline.json",
+        "_comment": "that's all",
+        "systems": [
+	"../data/liquid-3.0-5000K-data",
+	"../data/liquid-3.0-5000K-3000K-data",
+	"../data/liquid-3.0-5000K-4000K-data",
+
+	"../data/liquid-3.5-5000K-data",
+	"../data/liquid-3.5-5000K-3000K-data",
+	"../data/liquid-3.5-5000K-2-data",
+
+	"../data/Gradia-CO-100K-300K-data",
+	"../data/Gradia-CO-100K-data",
+
+	"../data/Gradia-HB-100K-1000K-data",
+	"../data/Gradia-HB-100K-300K-data",
+	"../data/Gradia-HB-100K-data",
+
+	"../data/Gradia-HC-100K-300K-data",
+
+	"../data/bulk-ABA-100K-300K-data",
+	"../data/bulk-ABA-100K-1000K-data",
+
+	"../data/bulk-ABC-100K-300K-data",
+
+	"../data/HD-100K-data",
+	"../data/HD-100K-300K-data",
+	"../data/HD-300K-500K-data",
+	"../data/HD-100K-1000K-data",
+	
+	"../data/LC-100K-500K-data",
+
+	"../data/tube-l-3-100K-data",
+	"../data/tube-l-3-100K-300K-data",
+	"../data/tube-l-3-300K-500K-data",
+	"../data/tube-l-3-100K-1000K-data",
+
+	"../data/tube-l-5-100K-300K-data",
+	"../data/tube-l-5-100K-data",
+	"../data/tube-l-5-300K-500K-data",
+	"../data/tube-l-5-500K-2500K-data",
+
+	"../data/C60-500K-1000K-data",
+	"../data/C60-300K-500K-data",
+	"../data/C60-100K-300K-data",
+	"../data/C60-100K-data",
+
+	"../data/C60-1812-100K-data",
+	"../data/C60-1812-100K-300K-data",	
+
+	"../data/sv-100K-300K-data",
+	"../data/sv-300K-500K-data",
+
+	"../data/sw-100K-300K-data",
+	
+	"../data/Diamond-100K-300K-data",
+	"../data/Diamond-100K-data",
+	"../data/Diamond-100K-1000K-data",
+
+	"../data/MG-300K-500K-data",
+	"../data/MG-100K-300K-data",
+	"../data/MG-100K-data",
+
+            "../data.init/1-POSCAR-bulk-ABA/POSCAR-bulk-ABA.01x01x01/02.md/sys-0016/deepmd",
+            "../data.init/2-POSCAR-C60-bcc/POSCAR-C60-bcc.01x01x01/02.md/sys-0120/deepmd",
+            "../data.init/3-POSCAR-Diamond/POSCAR-Diamond.01x01x01/02.md/sys-0064/deepmd",
+            "../data.init/4-POSCAR-bulk-ABC/POSCAR-bulk-ABC.01x01x01/02.md/sys-0024/deepmd",
+            "../data.iters/iter.000000/02.fp/data.000",
+            "../data.iters/iter.000000/02.fp/data.001",
+            "../data.iters/iter.000000/02.fp/data.002",
+            "../data.iters/iter.000000/02.fp/data.003",
+            "../data.iters/iter.000001/02.fp/data.000",
+            "../data.iters/iter.000001/02.fp/data.001",
+            "../data.iters/iter.000001/02.fp/data.002",
+            "../data.iters/iter.000001/02.fp/data.003",
+            "../data.iters/iter.000002/02.fp/data.000",
+            "../data.iters/iter.000002/02.fp/data.001",
+            "../data.iters/iter.000002/02.fp/data.003",
+            "../data.iters/iter.000003/02.fp/data.001",
+            "../data.iters/iter.000003/02.fp/data.002",
+            "../data.iters/iter.000003/02.fp/data.003",
+            "../data.iters/iter.000004/02.fp/data.001",
+            "../data.iters/iter.000005/02.fp/data.000",
+            "../data.iters/iter.000005/02.fp/data.002",
+            "../data.iters/iter.000005/02.fp/data.003",
+            "../data.iters/iter.000006/02.fp/data.001",
+            "../data.iters/iter.000007/02.fp/data.000",
+            "../data.iters/iter.000007/02.fp/data.001",
+            "../data.iters/iter.000007/02.fp/data.002",
+            "../data.iters/iter.000007/02.fp/data.003",
+            "../data.iters/iter.000008/02.fp/data.000",
+            "../data.iters/iter.000008/02.fp/data.001",
+            "../data.iters/iter.000008/02.fp/data.002",
+            "../data.iters/iter.000008/02.fp/data.003",
+            "../data.iters/iter.000009/02.fp/data.001",
+            "../data.iters/iter.000010/02.fp/data.001",
+            "../data.iters/iter.000010/02.fp/data.002",
+            "../data.iters/iter.000011/02.fp/data.001"
+        ],
+        "batch_size": "auto",
+        "seed": 27911967
+    }
+}
